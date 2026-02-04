@@ -19,12 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
         activityCard.className = "activity-card";
 
         const spotsLeft = details.max_participants - details.participants.length;
+        const participantsList =
+          details.participants.length > 0
+            ? details.participants.map((p) => `<li>${p}</li>`).join("")
+            : "<li>Aucun participant pour le moment</li>";
 
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>
-          <p><strong>Schedule:</strong> ${details.schedule}</p>
-          <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          <p><strong>Schedule test:</strong> ${details.schedule}</p>
+          <p><strong>Availability test:</strong> ${spotsLeft} spots left</p>
+          <div class="participants">
+            <h5>Participants</h5>
+            <ul>${participantsList}</ul>
+          </div>
         `;
 
         activitiesList.appendChild(activityCard);
@@ -34,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         option.value = name;
         option.textContent = name;
         activitySelect.appendChild(option);
+
       });
     } catch (error) {
       activitiesList.innerHTML = "<p>Failed to load activities. Please try again later.</p>";
