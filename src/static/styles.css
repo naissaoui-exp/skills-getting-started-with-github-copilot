@@ -89,13 +89,45 @@ section h3 {
 }
 
 .activity-card .participants ul {
-  list-style: disc;
-  padding-left: 20px;
+  list-style: none;
+  padding-left: 0;
   color: #455a64;
 }
 
 .activity-card .participants li {
   margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.participant-email {
+  word-break: break-word;
+}
+
+.participant-delete {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 4px;
+  color: #c62828;
+}
+
+.participant-delete:hover {
+  color: #b71c1c;
+}
+
+.participant-delete:focus-visible {
+  outline: 2px solid #3949ab;
+  outline-offset: 2px;
+}
+
+.participant-empty {
+  color: #607d8b;
+  font-style: italic;
 }
 
 .form-group {
